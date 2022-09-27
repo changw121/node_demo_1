@@ -24,17 +24,29 @@ var server = http.createServer(function(request, response){
   if(path === '/'){
     response.statusCode = 200
     response.setHeader('Content-Type', 'text/html;charset=utf-8')
-    response.write(`二哈`)
+    response.write(`
+    <!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>哈哈哈</h1>
+    </body>
+    `)
     response.end()
-  } else if(path === '/x'){
+  } else if(path === '/style.css'){
     response.statusCode = 200
     response.setHeader('Content-Type', 'text/css;charset=utf-8')
-    response.write(`body{color: red;}`)
+    response.write(`h1{color: red;}`)
     response.end()
   } else {
     response.statusCode = 404
     response.setHeader('Content-Type', 'text/html;charset=utf-8')
-    response.write(`你输入的路径不存在对应的内容`)
+    response.write(`你访问的页面不存在`)
     response.end()
   }
 
